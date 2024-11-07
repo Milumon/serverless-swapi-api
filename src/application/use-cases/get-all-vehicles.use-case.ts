@@ -17,7 +17,7 @@ export class GetAllVehiclesUseCase {
     // Filtra los vehículos que ya existen en la base de datos
     const newVehicles = vehiclesFromSwapi.filter(vehicle => !dbVehiclesMap.has(vehicle.id));
 
-    // Almacena los nuevos vehículos en DynamoDB
+    // Almacenar los nuevos vehículos en DynamoDB
     await Promise.all(
       newVehicles.map(async (vehicle) => {
         await this.dynamoDbRepository.create(vehicle);
