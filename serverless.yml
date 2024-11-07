@@ -10,7 +10,15 @@ provider:
   environment:
     SWAPI_BASE_URL: ${env:SWAPI_BASE_URL}
     DB_TABLE: ${env:DB_TABLE}
-
+    REGION: ${env:DB_TABLE}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+      Resource:
+        - arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.DB_TABLE}
 functions:
   getAllVehicles:
     handler: src/functions/get-all-vehicles.handler
