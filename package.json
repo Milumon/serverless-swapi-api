@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "start:dev": "dotenv -e .env.dev -- serverless offline --stage dev",
+    "deploy:dev": "dotenv -e .env.dev -- serverless deploy --stage dev",
+    "deploy:staging": "dotenv -e .env.staging -- serverless deploy --stage staging",
+    "deploy:prod": "dotenv -e .env.prod -- serverless deploy --stage prod",
+    "remove:dev": "dotenv -e .env.dev -- serverless remove --stage dev",
+    "remove:prod": "dotenv -e .env.prod -- serverless remove --stage prod",
+    "test": "dotenv -e .env.test -- jest --passWithNoTests",
+    "test:watch": "dotenv -e .env.test -- jest --watch"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.682.0",
+    "@aws-sdk/lib-dynamodb": "^3.685.0",
+    "aws-sdk": "^2.1691.0",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "dotenv-cli": "^7.4.2",
+    "jest": "^29.7.0",
+    "serverless-offline": "^14.3.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}

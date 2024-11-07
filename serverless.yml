@@ -1,0 +1,51 @@
+org: milumon
+app: serverless-swapi-api
+service: serverless-swapi-api
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  environment:
+    SWAPI_BASE_URL: ${env:SWAPI_BASE_URL}
+    DB_TABLE: ${env:DB_TABLE}
+
+functions:
+  getAllVehicles:
+    handler: src/functions/get-all-vehicles.handler
+    events:
+      - http:
+          path: vehicles
+          method: get
+
+  getVehicleById:
+    handler: src/functions/get-vehicle-by-id.handler
+    events:
+      - http:
+          path: vehicles/{id}
+          method: get
+
+  createVehicle:
+    handler: src/functions/create-vehicle.handler
+    events:
+      - http:
+          path: vehicles
+          method: post
+
+resources:
+  Resources:
+    VehiclesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DB_TABLE}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+plugins:
+  - serverless-offline

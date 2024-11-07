@@ -1,0 +1,67 @@
+openapi: 3.0.0
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID único del vehículo
+        name:
+          type: string
+          description: Nombre del vehículo
+        model:
+          type: string
+          description: Modelo del vehículo
+        vehicle_class:
+          type: string
+          description: Clase del vehículo
+        manufacturer:
+          type: string
+          description: Fabricante del vehículo
+        length:
+          type: string
+          description: Longitud del vehículo
+        cost_in_credits:
+          type: string
+          description: Costo del vehículo en créditos
+        crew:
+          type: string
+          description: Tripulación del vehículo
+        passengers:
+          type: string
+          description: Capacidad de pasajeros
+        max_atmosphering_speed:
+          type: string
+          description: Velocidad máxima en la atmósfera
+        cargo_capacity:
+          type: string
+          description: Capacidad de carga del vehículo
+        consumables:
+          type: string
+          description: Tiempo de operación con suministros
+        films:
+          type: array
+          items:
+            type: string
+          description: Películas en las que aparece el vehículo
+        pilots:
+          type: array
+          items:
+            type: string
+          description: Pilotos del vehículo
+        url:
+          type: string
+          description: URL del recurso
+        created:
+          type: string
+          description: Fecha de creación del recurso
+        edited:
+          type: string
+          description: Fecha de última edición del recurso
+  securitySchemes: {}
+info:
+  title: API de Vehículos SWAPI
+  description: Documentación de la API de Vehículos basada en Swagger
+  version: '1'
+paths: {}
