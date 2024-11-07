@@ -20,7 +20,10 @@ yarn-error.log*
 
 # Entorno de ejecución
 .env
-.env.*
+.env.test
+.env.prod
+.env.dev
+.env.staging
 
 # Coverage de pruebas
 coverage/
