@@ -125,34 +125,5 @@ El rol de IAM debe tener permisos para:
 
 ### Ejemplo de política de permisos
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:PutItem",
-        "dynamodb:GetItem",
-        "dynamodb:Scan"
-      ],
-      "Resource": "arn:aws:dynamodb:us-east-1:<YOUR_ACCOUNT_ID>:table/VehiclesTable"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "lambda:*",
-      "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "cloudformation:*",
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-## Notas adicionales
-
-- Asegúrate de tener las credenciales de AWS configuradas y con permisos adecuados para realizar las operaciones en los entornos especificados. 
+![image](https://github.com/user-attachments/assets/eb79fd92-fbc9-4703-87e0-7589abcc0e6e)
 
